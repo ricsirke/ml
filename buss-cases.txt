@@ -1,0 +1,6 @@
+nltk:
+    CV processing - for interview or not
+    costumer reviews processing
+cv:
+    clothes in pictures - detect fashion trends - bounding box of the clothpiece - analyse color distribution
+    products in shelves - bounding boxes????y
