@@ -1,5 +1,5 @@
-from Perceptron import Perceptron
-from utils import *
+from lib.Perceptron import Perceptron
+from lib.utils import *
 
 
 X = load_data('data/p1_a_X.dat')

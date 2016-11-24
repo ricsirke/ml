@@ -16,8 +16,6 @@ def save(y_r, y_n):
 
 
 
-
-
 def y_func(x):
     return x**2
 

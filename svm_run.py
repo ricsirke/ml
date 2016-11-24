@@ -1,5 +1,5 @@
-from SVM import SVM
-from utils import *
+from lib.SVM import SVM
+from lib.utils import *
 import numpy as np
 
 X = np.array(load_data('data/p1_a_X.dat'))
