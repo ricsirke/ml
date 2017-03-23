@@ -14,7 +14,7 @@ lrm1 = LinRegr()
 lrm2 = LinRegr()
 
 def feat_map(row):
-    return [1, row[0], row[1], row[2]]
+    return [0.9, row[0], row[1], row[2]]
     
 def feat_map2(row):
     return [1, np.log(row[0]**2), np.log(row[1]**2), np.log(row[2]**2)]
@@ -24,11 +24,15 @@ print '########################################', '\n'
 lrm0.train(X, y)
 lrm0.avg_pred_err(X, y_r)
 
-lrm1.train(X, y, feat_map)
+lrm1.train(X, y)
+lrm1.setFeatMap(feat_map)
 lrm1.avg_pred_err(X, y_r)
 
-# lrm2.train(X, y, feat_map2)
-# lrm2.avg_pred_err(X, y_r)
+lrm2.train(X, y)
+lrm1.setFeatMap(feat_map2)
+lrm2.avg_pred_err(X, y_r)
 
 
-print lrm0.theta, lrm1.theta
+print lrm0.theta
+print lrm1.theta
+print lrm2.theta

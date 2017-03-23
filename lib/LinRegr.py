@@ -4,14 +4,18 @@ class LinRegr():
     def __init__(self):
         self.theta = None
         self.theta0 = None
+        self.feat_map = None
         
-    def train(self, X, y, feat_map=None):
+    def setFeatMap(self, feat_map):
+        self.feat_map = feat_map
+        
+    def train(self, X, y):
         X_e = np.copy(X)
         X_m = np.copy(X)
         
-        if feat_map:
+        if self.feat_map:
             print 'feature map detected'
-            X_m = np.array(map(feat_map, X_e))
+            X_m = np.array(map(self.feat_map, X_e))
             X_e = np.copy(X_m)
         
         X_e = np.array(map(lambda el: np.concatenate((el, [1.0])), X_e))
@@ -34,7 +38,13 @@ class LinRegr():
         print 'variance:', var
         
     def avg_pred_err(self, X, y_r):
+        err = None
         sample_len = len(X)
-        err = sum([ y_r[i] - np.dot(self.theta, X[i]) - self.theta0 for i in range(sample_len) ])/sample_len
+
+        if self.feat_map:
+            pass
+        else:
+            err = sum([ y_r[i] - np.dot(self.theta, X[i]) - self.theta0 for i in range(sample_len) ])/sample_len
+            
         print 'average prediction error:', err, '\n'
         print '########################################', '\n'
